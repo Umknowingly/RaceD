@@ -9,15 +9,15 @@ using Race.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---------- Controllers ----------
+// Controllers 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// ---------- EF Core (SQLite) ----------
+//  EF Core (SQLite)
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ---------- ASP.NET Core Identity ----------
+//  ASP.NET Core Identity
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = true;
@@ -26,7 +26,7 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 })
 .AddDefaultTokenProviders();
 
-// ---------- JWT ----------
+//  JWT
 builder.Services.AddScoped<ITokenService, TokenService>();
 
 var jwtKey = builder.Configuration["Jwt:Key"]!;
