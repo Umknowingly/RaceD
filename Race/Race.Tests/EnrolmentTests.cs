@@ -9,11 +9,13 @@ using static Race.DTOs.EventDtos;
 
 namespace Race.Tests
 {
+    // this inherits from IClassFixture<CustomWebApplicationFactory> to share the same factory instance across tests
     public class EnrolmentTests : IClassFixture<CustomWebApplicationFactory>
     {
         private readonly CustomWebApplicationFactory _factory;
         public EnrolmentTests(CustomWebApplicationFactory factory) => _factory = factory;
 
+        // helper method to create an authenticated HttpClient for a given role
         private async Task<HttpClient> AuthedClient(string role)
         {
             var client = _factory.CreateClient();
