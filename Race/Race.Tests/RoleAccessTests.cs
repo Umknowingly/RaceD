@@ -26,6 +26,7 @@ namespace Race.Tests
             return client;
         }
 
+        // This test checks that a user with the "Participant" role cannot create an event and receives a 403 Forbidden response. 
         public async Task Participant_Cannot_CreateEvent_Returns403()
         {
             var client = await AuthedClient("Participant");
@@ -34,6 +35,7 @@ namespace Race.Tests
             response.StatusCode.Should().Be(HttpStatusCode.Forbidden);
         }
 
+        // This test checks that a user with the "Organiser" role can successfully create an event and receives a 201 Created response.
         public async Task Organiser_Can_CreateEvent_Returns201()
         {
             var client = await AuthedClient("Organiser");
