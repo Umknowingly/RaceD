@@ -6,6 +6,7 @@ using Race.Data;
 
 namespace Race.Tests
 {
+    // Inheriting from WebApplicationFactory<Program> allows us to create a custom factory for our web application, which can be used to configure the test environment and services.
     public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     {
         protected override void ConfigureWebHost(IWebHostBuilder builder)
