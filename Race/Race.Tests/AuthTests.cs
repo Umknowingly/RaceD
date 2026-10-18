@@ -7,9 +7,12 @@ namespace Race.Tests
 {
     public class AuthTests : IClassFixture<CustomWebApplicationFactory>
     {
+        // The HttpClient is used to send HTTP requests to the API endpoints for testing purposes.
         private readonly HttpClient _client;
         public AuthTests(CustomWebApplicationFactory factory) => _client = factory.CreateClient();
 
+        // This test method checks the registration endpoint with valid data. It creates a new RegisterDto object with valid user information,
+        // sends a POST request to the /api/auth/register endpoint, and asserts that the response status code is 201 Created.
         public async Task Register_WithValidData_Returns201()
         {
             var dto = new RegisterDto("Test User", $"u{Guid.NewGuid()}@test.com", "Password1", "Participant", null);
@@ -17,6 +20,7 @@ namespace Race.Tests
             response.StatusCode.Should().Be(HttpStatusCode.Created);
         }
 
+        // This test method checks the registration endpoint with an invalid role. It creates a new RegisterDto object with an invalid role ("Admin"),
         public async Task Register_WithInvalidRole_Returns400()
         {
             var dto = new RegisterDto("Bad", $"b{Guid.NewGuid()}@test.com", "Password1", "Admin", null);
