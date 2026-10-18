@@ -6,11 +6,13 @@ using Race.Models;
 
 namespace Race.Services
 {
-    public interface ITokenService
+    // this interface defines a contract for a service that generates JWT tokens for authenticated users
+    public interface ITokenService 
     {
         string CreateToken(ApplicationUser user);
     }
 
+    // this class implements the ITokenService interface and provides the logic for creating JWT tokens
     public class TokenService : ITokenService
     {
         private readonly IConfiguration _config;
