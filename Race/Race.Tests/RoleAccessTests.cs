@@ -44,6 +44,7 @@ namespace Race.Tests
             response.StatusCode.Should().Be(HttpStatusCode.Created);
         }
 
+        // This test checks that an unauthenticated user can list events and receives a 200 OK response.
         public async Task Unauthenticated_Can_ListEvents()
         {
             var client = _factory.CreateClient();
