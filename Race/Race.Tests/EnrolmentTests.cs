@@ -46,7 +46,7 @@ namespace Race.Tests
             enrolResp.StatusCode.Should().Be(HttpStatusCode.Created);
         }
 
-        
+        // test method to verify that duplicate enrolments return a 409 Conflict status code
         public async Task Duplicate_Enrolment_Returns409()
         {
             var organiser = await AuthedClient("Organiser");
@@ -67,6 +67,7 @@ namespace Race.Tests
         }
     }
 
+    // this interface is used to indicate that a test class uses a shared fixture, in this case, the CustomWebApplicationFactory
     public interface IClassFixture<T>
     {
     }
