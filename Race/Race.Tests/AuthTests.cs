@@ -27,7 +27,9 @@ namespace Race.Tests
             var response = await _client.PostAsJsonAsync("/api/auth/register", dto);
             response.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
-
+        
+        // This test method checks the login endpoint with a wrong password. It creates a new user, attempts to log in with an incorrect password,
+        // and asserts that the response status code is 401 Unauthorized.
         public async Task Login_WithWrongPassword_Returns401()
         {
             var email = $"l{Guid.NewGuid()}@test.com";
