@@ -9,7 +9,7 @@ using Race.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ---------- Controllers (API only) ----------
+// ---------- Controllers ----------
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
