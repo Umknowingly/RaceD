@@ -18,6 +18,7 @@ namespace Race.Services
         private readonly IConfiguration _config;
         public TokenService(IConfiguration config) => _config = config;
 
+        // this method creates a JWT token for the given user, including claims for the user's ID, email, name, and role
         public string CreateToken(ApplicationUser user)
         {
             var claims = new List<Claim>
@@ -28,6 +29,7 @@ namespace Race.Services
                 new(ClaimTypes.Role, user.Role)
             };
 
+            // create a symmetric security key using the secret key from the configuration
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]!));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
