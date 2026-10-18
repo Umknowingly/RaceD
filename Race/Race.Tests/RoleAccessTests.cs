@@ -7,6 +7,7 @@ using static Race.DTOs.EventDtos;
 
 namespace Race.Tests
 {
+    // This test class checks role-based access control for the Race API.
     public class RoleAccessTests : IClassFixture<CustomWebApplicationFactory>
     {
         private readonly CustomWebApplicationFactory _factory;
