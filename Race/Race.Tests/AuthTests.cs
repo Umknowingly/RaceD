@@ -39,6 +39,8 @@ namespace Race.Tests
             var response = await _client.PostAsJsonAsync("/api/auth/login", new LoginDto(email, "WrongPassword"));
             response.StatusCode.Should().Be(HttpStatusCode.Unauthorized);
         }
+
+        // This test method checks the login endpoint with valid credentials. It creates a new user, logs in with the correct password,
         public async Task Login_WithValidCredentials_ReturnsToken()
         {
             var email = $"v{Guid.NewGuid()}@test.com";
