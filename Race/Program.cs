@@ -35,6 +35,8 @@ builder.Services.AddAuthentication(options =>
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 })
+
+// Configure JWT Bearer authentication
 .AddJwtBearer(options =>
 {
     options.TokenValidationParameters = new TokenValidationParameters
