@@ -27,7 +27,7 @@ namespace Race.Tests
             return client;
         }
 
-    
+        // test method to verify that a participant can enrol in a category
         public async Task Participant_Can_Enrol_In_Category()
         {
             var organiser = await AuthedClient("Organiser");
