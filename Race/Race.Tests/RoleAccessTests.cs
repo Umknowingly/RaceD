@@ -52,6 +52,7 @@ namespace Race.Tests
             response.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
+        // This test checks that an unauthenticated user cannot access user details and receives a 401 Unauthorized response, which is the expected behavior for protected endpoints.
         public async Task Unauthenticated_Cannot_GetUser()
         {
             var client = _factory.CreateClient();
