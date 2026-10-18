@@ -10,9 +10,11 @@ namespace Race.Tests
     // This test class checks role-based access control for the Race API.
     public class RoleAccessTests : IClassFixture<CustomWebApplicationFactory>
     {
+        // This factory is used to create HTTP clients for testing the API. 
         private readonly CustomWebApplicationFactory _factory;
         public RoleAccessTests(CustomWebApplicationFactory factory) => _factory = factory;
 
+        // This method creates an authenticated HTTP client for a given role by registering and logging in a user.
         private async Task<HttpClient> AuthedClient(string role)
         {
             var client = _factory.CreateClient();
